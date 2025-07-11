@@ -23,6 +23,9 @@
 //   );
 // });
 // // .then((result) => console.log(result));
+const { featUser } = require("./user-catalog/user-catalog");
+
+console.log(featUser());
 
 const express = require("express");
 
@@ -50,6 +53,5 @@ app.listen(port, () => {
   console.log("port 3000");
 });
 app.use((req, res, next) => {
- 
   next();
 });
