@@ -15,9 +15,16 @@ const filterUsersByCity = (users, cityName) =>
 
 const saveUsersToFile = async (users) => {
   const userCollection = await fs.readFile(userCollectionPath, "utf-8");
+
   const userCOll = JSON.parse(userCollection);
 
-  userCOll.push(...users);
+  users.forEach((user) => {
+    const exists = userCOll.some((item) => item.id !== user.is);
+
+    if (!exists) {
+      userCOll.push(user);
+    }
+  });
 
   await fs.writeFile(userCollectionPath, JSON.stringify(userCOll, null, 2));
 };

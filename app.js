@@ -25,7 +25,9 @@
 // // .then((result) => console.log(result));
 const { featUser } = require("./user-catalog/user-catalog");
 
-console.log(featUser());
+const { getPost } = require("./post/post");
+
+console.log(getPost());
 
 const express = require("express");
 
