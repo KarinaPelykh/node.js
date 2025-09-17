@@ -17,6 +17,7 @@ const getContactById = async (id) => {
   const getID = listContacts.find((contact) => contact.id === id);
   return getID || null;
 };
+
 const deleteContact = async (id) => {
   const listContacts = await listContact();
   const index = listContacts.findIndex((contact) => contact.id !== id);
@@ -30,4 +31,5 @@ const deleteContact = async (id) => {
 module.exports = {
   listContact,
   getContactById,
+  deleteContact,
 };

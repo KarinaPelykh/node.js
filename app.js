@@ -1,34 +1,3 @@
-// globalThis.foo = 74;
-
-// const { log } = require("./index");
-// const { listContact, getContactById } = require("./contact");
-// const fs = require("fs").promises;
-
-// const callback = (name) => {
-//   // console.log(`Hi ${name}`);
-// };
-
-// log(callback);
-
-// fs.readdir(__dirname).then((files) => {
-//   return Promise.all(
-//     files.map(async (filesname) => {
-//       const stats = await fs.stat(filesname);
-//       return {
-//         Name: filesname,
-//         Size: stats.size,
-//         Date: stats.mtime,
-//       };
-//     })
-//   );
-// });
-// // .then((result) => console.log(result));
-const { featUser } = require("./user-catalog/user-catalog");
-
-const { getPost } = require("./post/post");
-
-console.log(getPost());
-
 const express = require("express");
 
 const app = express();
@@ -54,6 +23,15 @@ app.post("/user/:userid", (req, res) => {
 app.listen(port, () => {
   console.log("port 3000");
 });
+
 app.use((req, res, next) => {
   next();
 });
+
+const sayHi = (name) => {
+  console.log(`Helllo${name}`);
+};
+
+sayHi("KArynssa");
+const strings = require("./theory/theory");
+console.log(strings.d);
