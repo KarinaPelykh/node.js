@@ -6,9 +6,11 @@ const cors = require("cors");
 
 const usersRoutes = require("./routes/api/users");
 
+const authRouters = require("./routes/api/auth");
+
 app.use("/api/users", usersRoutes);
 
-console.log("kfmdlSFSKLF");
+app.use("/api/auth", authRouters);
 
 app.use((req, res, next) => {
   console.log("middleware");
