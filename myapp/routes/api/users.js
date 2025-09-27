@@ -4,11 +4,13 @@ const router = express.Router();
 
 const { getUsers, createUser, getUserById } = require("../../user");
 
-router.get("/", getUsers);
+const { auth } = require("../../middlewares");
 
-router.post("/", createUser);
+router.get("/", auth, getUsers);
 
-router.get("/:id", getUserById);
+router.post("/", auth, createUser);
+
+router.get("/:id", auth, getUserById);
 
 router.delete("/:id", (req, res) => {
   res.json({ message: `User with id ${req.params.id} deleted (mock)` });
