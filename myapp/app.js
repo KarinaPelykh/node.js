@@ -8,9 +8,11 @@ const usersRoutes = require("./routes/api/users");
 
 const authRouters = require("./routes/api/auth");
 
+app.use(express.static("public"));
+
 app.use("/api/users", usersRoutes);
 
-app.use("/api/auth", authRouters);
+app.use("/api/auth", upload.single("cover"), authRouters);
 
 app.use((req, res, next) => {
   console.log("middleware");

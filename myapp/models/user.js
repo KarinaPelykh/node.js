@@ -12,6 +12,7 @@ const userSchema = new Schema(
     name: { type: String, require: true },
     email: { type: String, require: true, match: regex, unique: true },
     password: { type: String, minlength: 6, require: true },
+    avatarURL: { type: String, require: true },
   },
   { versionKey: false, timestamps: true }
 );
